@@ -13,5 +13,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_POJETO_993A9 }}'
-          projectId: pojeto-993a9
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PWA_48A9A }}'
+          projectId: pwa-48a9a

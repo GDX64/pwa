@@ -1,15 +1,5 @@
 {
   "projects": {
-    "default": "pojeto-993a9"
-  },
-  "targets": {
-    "pojeto-993a9": {
-      "hosting": {
-        "app": [
-          "pwa-app-e87ce"
-        ]
-      }
-    }
-  },
-  "etags": {}
+    "default": "pwa-48a9a"
+  }
 }
