@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "ci": "",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -19,3 +20,4 @@
     "vue-tsc": "^1.0.11"
   }
 }
+
