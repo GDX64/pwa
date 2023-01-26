@@ -1,9 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { reactive } from "vue";
+import { Asset } from "./AssetMob/Asset";
+import { faker } from "@faker-js/faker";
+import AssetsCards from "./components/AssetsCards.vue";
+
+const tickers = [...Array(50)].map(() =>
+  faker.lorem.word({ length: 5 }).toUpperCase()
+);
+const assets = reactive(tickers.map((ticker) => Asset.get(ticker)));
+assets.forEach((asset) => asset.observe());
+</script>
 
 <template>
-  <div class="">
-    <p class="text-3xl mb-3">Some say this is an app</p>
-    <p class="">(who am I to saay otherwise?)</p>
+  <div class="w-screen bg-gray-800">
+    <AssetsCards :assets="assets"></AssetsCards>
   </div>
 </template>
 
