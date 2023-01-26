@@ -13,7 +13,6 @@ export class Asset {
     const asset = reactive(this);
     const quotation = randomGen({ initial: Math.random() * 100 }).pipe(
       tap((value) => {
-        console.log("hello");
         asset.quotation = value;
       })
     );
