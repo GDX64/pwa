@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { reactive, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Asset } from './AssetMob/Asset';
 import { faker } from '@faker-js/faker';
 import AssetsCards from './components/AssetsCards.vue';
 
 const tickers = [...Array(50)].map(() => faker.lorem.word({ length: 5 }).toUpperCase());
-const assets = reactive(tickers.map((ticker) => Asset.get(ticker)));
+const assets = ref(tickers.map((ticker) => Asset.get(ticker)));
 watch(
-    () => [...assets],
+    () => [...assets.value],
     (now, _old, clear) => {
         const subs = now.map((asset) => asset.observe());
         clear(() => subs.map((sub) => sub.unsubscribe()));
     },
+    { immediate: true },
 );
 </script>
 
@@ -22,3 +23,4 @@ watch(
 </template>
 
 <style scoped></style>
+
