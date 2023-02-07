@@ -23,6 +23,9 @@ function onSelected(page: Pages) {
             <swiper-slide class="w-full">
                 <WatchList v-if="selectedPage === Pages.WATCHLIST"></WatchList>
                 <HomePage v-if="selectedPage === Pages.HOME"></HomePage>
+                <div v-if="selectedPage === Pages.NONE" class="flex items-center w-full h-screen justify-center">
+                    <h1 class="text-xl text-white">Not yet</h1>
+                </div>
             </swiper-slide>
         </swiper-container>
     </div>
