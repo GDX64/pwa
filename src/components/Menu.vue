@@ -5,6 +5,11 @@
     <Transition name="menu">
         <div class="w-60 h-full bg-gray-900 fixed text-white" v-if="isOpen" @touchmove="onTouchMove">
             <div class="">sdfa</div>
+            <swiper-container>
+                <swiper-slide>Slide 1</swiper-slide>
+                <swiper-slide>Slide 2</swiper-slide>
+                <swiper-slide>Slide 3</swiper-slide>
+            </swiper-container>
         </div>
     </Transition>
 </template>
