@@ -20,7 +20,17 @@
 </template>
 
 <script lang="ts" setup>
+import { watch } from 'vue';
 import { Asset } from '../AssetMob/Asset';
 
-defineProps<{ assets: Asset[] }>();
+const props = defineProps<{ assets: Asset[] }>();
+
+watch(
+    () => [...props.assets],
+    (now, _old, clear) => {
+        const subs = now.map((asset) => asset.observe());
+        clear(() => subs.map((sub) => sub.unsubscribe()));
+    },
+    { immediate: true },
+);
 </script>
