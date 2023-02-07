@@ -19,8 +19,14 @@ watch(
 
 <template>
     <div class="w-screen max-w-full bg-black">
-        <Menu></Menu>
-        <AssetsCards :assets="assets"></AssetsCards>
+        <swiper-container @slidechange="" slides-per-view="auto" :slide-to-clicked-slide="true" :initial-slide="1">
+            <swiper-slide class="h-screen w-52">
+                <Menu></Menu>
+            </swiper-slide>
+            <swiper-slide class="w-full">
+                <AssetsCards :assets="assets"></AssetsCards>
+            </swiper-slide>
+        </swiper-container>
     </div>
 </template>
 
