@@ -8,7 +8,7 @@
         <div class="bg-blue-400"><p>b</p></div>
         <!-- Content -->
         <div class="">
-            <swiper-container>
+            <swiper-container :nested="true">
                 <swiper-slide v-for="wallet in wallets" :key="wallet.id">
                     <AssetsCards :assets="wallet.assets"></AssetsCards>
                 </swiper-slide>
@@ -26,3 +26,4 @@ const wallets = ref([...Array(3)].map((_, i) => Wallet.get(i)));
 </script>
 
 <style scoped></style>
+
