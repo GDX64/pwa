@@ -7,6 +7,7 @@
     "dev": "vite",
     "ci": "",
     "build": "vue-tsc && vite build",
+    "host": "vite --host",
     "preview": "vite preview"
   },
   "dependencies": {
