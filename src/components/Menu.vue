@@ -1,30 +1,14 @@
 <template>
     <div class="w-full h-full bg-gray-900 text-white">
-        <div class="">Grade de cotações</div>
+        <div class="" @click="emit('selected', Pages.HOME)">Home</div>
+        <div class="" @click="emit('selected', Pages.WATCHLIST)">Grade de cotações</div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { Pages } from '../Interfaces/MenuTypes';
 
-const isOpen = ref(false);
-function openMenu() {
-    isOpen.value = !isOpen.value;
-}
-
-function onSliderChange() {
-    console.log('slide');
-}
+const emit = defineEmits<{ (event: 'selected', page: Pages): void }>();
 </script>
 
-<style scoped>
-.menu-container {
-}
-
-.menu-enter-from {
-    transform: translateX(-200px);
-}
-.menu-enter-active {
-    transition: all 0.3s;
-}
-</style>
+<style scoped></style>
