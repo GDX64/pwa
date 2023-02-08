@@ -40,17 +40,32 @@ function openMenu() {
                 <swiper-slide class="h-full w-52 max-h-full">
                     <Menu @selected="onSelected"></Menu>
                 </swiper-slide>
-                <swiper-slide class="w-screen h-full overflow-hidden">
-                    <WatchList v-if="selectedPage === Pages.WATCHLIST"></WatchList>
-                    <HomePage v-if="selectedPage === Pages.HOME"></HomePage>
-                    <div v-if="selectedPage === Pages.NONE" class="flex items-center w-full h-screen justify-center">
-                        <h1 class="text-xl text-white">Not yet</h1>
-                    </div>
+                <swiper-slide class="w-screen h-full overflow-hidden relative">
+                    <Transition name="page">
+                        <WatchList v-if="selectedPage === Pages.WATCHLIST"></WatchList>
+                        <HomePage v-else-if="selectedPage === Pages.HOME"></HomePage>
+                        <div v-else-if="selectedPage === Pages.NONE" class="flex items-center w-full h-screen justify-center">
+                            <h1 class="text-xl text-white">Not yet</h1>
+                        </div>
+                    </Transition>
                 </swiper-slide>
             </swiper-container>
         </div>
     </div>
 </template>
 
-<style scoped></style>
+<style>
+.page-enter-active,
+.page-leave-active {
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+.page-enter-from {
+    transform: translateY(1000px);
+}
+.page-leave-to {
+    transform: translateY(-1000px);
+}
+</style>
 
