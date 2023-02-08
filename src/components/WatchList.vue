@@ -19,10 +19,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Wallet } from '../AssetMob/Wallet';
+import { useAppEssentials } from '../Stores/Essentials';
 import AssetsCards from './AssetsCards.vue';
 
-const wallets = ref([...Array(3)].map((_, i) => Wallet.get(i)));
+const { WalletConstructor } = useAppEssentials();
+const wallets = ref([...Array(3)].map((_, i) => WalletConstructor.get(i)));
 </script>
 
 <style scoped></style>

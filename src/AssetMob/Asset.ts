@@ -2,9 +2,10 @@ import { faker } from '@faker-js/faker';
 import { interval, merge, Observable, tap } from 'rxjs';
 import { markRaw, reactive } from 'vue';
 import { randomGen } from '../random/randomWalk';
+import * as Interfaces from '../Interfaces/AssetInterface';
 
 const assetMap = new Map<string, Asset>();
-export class Asset {
+export class Asset implements Interfaces.Asset {
     trades = 0;
     quotation = 0;
     variation = 0;
@@ -48,7 +49,8 @@ export class Asset {
     }
 
     observe() {
-        return this.obs$.subscribe();
+        const sub = this.obs$.subscribe();
+        return () => sub.unsubscribe();
     }
 
     varClass() {

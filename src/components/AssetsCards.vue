@@ -21,15 +21,15 @@
 
 <script lang="ts" setup>
 import { watch } from 'vue';
-import { Asset } from '../AssetMob/Asset';
+import { Asset } from '../Interfaces/AssetInterface';
 
 const props = defineProps<{ assets: Asset[] }>();
 
 watch(
     () => [...props.assets],
     (now, _old, clear) => {
-        const subs = now.map((asset) => asset.observe());
-        clear(() => subs.map((sub) => sub.unsubscribe()));
+        const unsubs = now.map((asset) => asset.observe());
+        clear(() => unsubs.forEach((unsub) => unsub()));
     },
     { immediate: true },
 );
