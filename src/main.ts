@@ -1,5 +1,5 @@
-import { Asset } from './AssetMob/Asset';
-import { Wallet } from './AssetMob/Wallet';
+import { Asset } from './InterfaceImplementations/Asset';
+import { Wallet } from './InterfaceImplementations/Wallet';
 import { initApp } from './lib';
 
 initApp({
