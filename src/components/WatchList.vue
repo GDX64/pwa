@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col overflow-y-auto h-full">
         <!-- Tabs -->
         <div class="flex flex-row p-2 bg-red-400">
             <div v-for="wallet in wallets" :key="wallet.id" class="px-2">{{ wallet.name }}</div>
