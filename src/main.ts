@@ -1,4 +1,4 @@
-import { initApp } from '../dist/lib';
-import '../dist/style.css';
+import { initApp } from './lib';
+
 initApp({ el: '#app' });
 

@@ -1,17 +1,12 @@
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 import dts from 'vite-plugin-dts';
+
 // https://vitejs.dev/config/
 export default defineConfig({
-    build: {
-        lib: {
-            entry: path.resolve(__dirname, './src/lib.ts'),
-            fileName: 'lib',
-            name: 'lib',
-        },
-    },
+    build: getBuildMode(),
     plugins: [
         vue(),
         dts({}),
@@ -47,4 +42,17 @@ export default defineConfig({
         }),
     ],
 });
+
+function getBuildMode(): UserConfig['build'] {
+    if (process.env.BUILD_MODE !== 'lib') {
+        return {};
+    }
+    return {
+        lib: {
+            entry: path.resolve(__dirname, './src/lib.ts'),
+            fileName: 'lib',
+            name: 'lib',
+        },
+    };
+}
 
