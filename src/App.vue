@@ -17,10 +17,10 @@ function onSelected(page: Pages) {
 <template>
     <div class="w-screen max-w-full bg-black">
         <swiper-container ref="swiper" @slidechange="" slides-per-view="auto" :slide-to-clicked-slide="true" :initial-slide="1">
-            <swiper-slide class="h-screen w-52">
+            <swiper-slide class="h-screen w-52 max-h-screen">
                 <Menu @selected="onSelected"></Menu>
             </swiper-slide>
-            <swiper-slide class="w-full">
+            <swiper-slide class="w-full h-screen overflow-auto">
                 <WatchList v-if="selectedPage === Pages.WATCHLIST"></WatchList>
                 <HomePage v-if="selectedPage === Pages.HOME"></HomePage>
                 <div v-if="selectedPage === Pages.NONE" class="flex items-center w-full h-screen justify-center">
