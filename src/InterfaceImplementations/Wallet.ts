@@ -4,7 +4,7 @@ import { Asset } from './Asset';
 const walletMap = new Map<number, Wallet>();
 
 export class Wallet {
-    name = faker.lorem.word();
+    name = faker.lorem.word({ length: 10 });
     assets: Asset[];
     constructor(public id: number) {
         const walletSize = Math.round(30 + 20 * Math.random());
@@ -23,3 +23,4 @@ export class Wallet {
         return newWallet;
     }
 }
+
