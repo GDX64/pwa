@@ -11,7 +11,7 @@ export default defineConfig({
         vue(),
         dts({}),
         VitePWA({
-            registerType: 'autoUpdate',
+            registerType: 'prompt',
             injectRegister: 'script',
             devOptions: { enabled: true },
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
