@@ -1,8 +1,3 @@
-import { createApp } from 'vue';
-import './style.css';
-import App from './App.vue';
-import { register } from 'swiper/element/bundle';
+import { initApp } from './lib';
 
-register();
-createApp(App).mount('#app');
-
+initApp({ el: '#app' });
